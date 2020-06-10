@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  background: #0074d9;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
