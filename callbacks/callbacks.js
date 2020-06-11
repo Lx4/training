@@ -59,12 +59,28 @@ function reduce(array, callback, initialValue) {
   return value;
 }
 
-
 // Challenge 7
-function intersection(arrays) {}
+function intersection(...arrays) {
+  currentArray = reduce(
+    arrays,
+    function (arrayA, arrayB) {
+      let arr = [];
+      for (let item of arrayA) {
+        if (arrayB.includes(item)) {
+          arr.push(item);
+        }
+      }
+      return arr;
+    },
+    arrays[0]
+  );
+  return currentArray;
+}
 
-// console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
-// should log: [5, 15]
+console.log(
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
+);
+//should log: [5, 15]
 
 // Challenge 8
 function union(arrays) {}
