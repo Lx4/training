@@ -41,8 +41,14 @@ function forEach(array, callback) {
 
 // Challenge 5
 function mapWith(array, callback) {
-    
+  let newArr = [];
+  forEach(array, function (item) {
+    newArr.push(callback(item));
+  });
+  return newArr;
 }
+
+//console.log(mapWith([1, 2, 3], addTwo));
 
 // Challenge 6
 function reduce(array, callback, initialValue) {}
