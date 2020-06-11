@@ -57,33 +57,45 @@ function addByX(x) {
   // Fancy arrow function for fun to mix my brain and understand it well
   return (num) => {
     let result = num + x;
-    console.log(result);
     return result;
   };
 }
 
-// /*** Uncomment these to check your work! ***/
-// const addByTwo = addByX(2);
-// addByTwo(1); // => should return 3
-// addByTwo(2); // => should return 4
-// addByTwo(3); // => should return 5
+/*** Uncomment these to check your work! ***/
+const addByTwo = addByX(2);
+addByTwo(1); // => should return 3
+addByTwo(2); // => should return 4
+addByTwo(3); // => should return 5
 
-// const addByThree = addByX(3);
-// addByThree(1); // => should return 4
-// addByThree(2); // => should return 5
+const addByThree = addByX(3);
+addByThree(1); // => should return 4
+addByThree(2); // => should return 5
 
-// const addByFour = addByX(4);
-// addByFour(4); // => should return 8
-// addByFour(5); // => should return 9
+const addByFour = addByX(4);
+addByFour(4); // => should return 8
+addByFour(5); // => should return 9
 
 // CHALLENGE 4
-function once(func) {}
+function once(func) {
+  let firstTime = true;
+  let result;
+
+  function newFunc(val) {
+    if (firstTime) {
+      result = func(val);
+      firstTime = false;
+    }
+    return result;
+  }
+  return newFunc;
+}
 
 // /*** Uncomment these to check your work! ***/
-// const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+const onceFunc = once(addByTwo); 
+const secondFunc = once(addByTwo); // another function that can be run just on
+console.log(onceFunc(4)); // => should log 6
+console.log(secondFunc(10)); // => should log 12
+console.log(onceFunc(9001)); // => should log 6
 
 // CHALLENGE 5
 function after(count, func) {}
