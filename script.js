@@ -1,10 +1,21 @@
-var el = document.getElementById("test");
-var list = document.getElementsByTagName("main");
-var main = list[0];
-var x = 0;
+const fetch = require("node-fetch");
 
-setInterval(() => {
-  x <= window.innerWidth - 100 ? (x += 3) : (x = 0);
-  el.style.left = x + "px";
-  el.textContent = "init";
-}, 1000);
+const summonerName = "Lx4";
+
+var summoner;
+
+fetch(
+  `https://euw1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${summonerName}`,
+  {
+    method: "GET",
+    withCredentials: true,
+    headers: {
+      "X-Riot-Token": "RGAPI-0b18e5d5-4fb0-48d7-b8c2-0942991d94b8",
+    },
+  }
+)
+  .then((response) => response.json())
+  .then((data) => {
+    summoner = data;
+    console.log(summoner);
+  });
